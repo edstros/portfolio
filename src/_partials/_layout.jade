@@ -1,0 +1,40 @@
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="description", content="portfolio website for Edwin Acevedo, software developer in Nashville, Tennessee")
+    meta(name="keywords", content="software developer, Nashville, nonprofit, marketing, social media")
+    block title
+      title Edwin Acevedo | Software Developer | Portfolio
+      // bower:css
+      // endbower
+    link(rel="stylesheet", href="css/main.css")
+  body
+    include _header
+
+    .container
+      block content
+
+      include _footer
+      // build:js lib/build.js
+      // bower:js
+      // endbower
+      // endbuild
+      script(src="js/jquery.min.js")
+      script(src="js/jquery.flip.js")
+      script(src="js/jquery.scrollNav.js")
+      script(src="js/jquery.tooltipster.js")
+      script(src="js/main.js")
+      script('.scrollSection').scrollNav({
+        showHeadline: 'false',
+        speed: 350,
+        fixedMargin: 60,
+        scrollOffset: 80
+      });
+      var $item = $('.scroll-nav__item');
+      $.each($item, function() {
+        $text = $(this).find('a').html().toLowerCase();
+        $(this).addClass($text);
+      });
